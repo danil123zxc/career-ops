@@ -1,48 +1,42 @@
 # Mode: pdf — ATS-Optimized PDF Generation
 
-## One-page constraint (MANDATORY)
+## One-page constraint (MANDATORY) — Classic Resume Format
 
-The generated CV MUST always fit on exactly ONE page. No exceptions. To achieve this:
+The generated CV MUST always fit on exactly ONE page. Classic resume style prioritizes:
 
-1. **Summary**: 2-3 lines max. Tight, keyword-dense, no filler.
-2. **Experience**: Include only the 2-3 most relevant roles. 2-3 bullets per role max. Each bullet is 1-2 lines.
-3. **Projects**: Top 2-3 most relevant only. One-line description each.
-4. **Education**: Degree + institution + date. No descriptions unless exceptional (honors, thesis).
-5. **Certifications**: List format, no descriptions. Skip if space is tight.
-6. **Skills**: Single line per category. Compact.
-7. **Competencies**: Inline comma-separated or pipe-separated keywords. No tags, no grid.
+1. **Education**: Institution, degree, location, date, GPA, relevant coursework (2-3 schools max)
+2. **Work Experience**: 2-3 most relevant roles. 3-4 bullets per role (impact-focused, measurable results)
+3. **University Projects**: Top 3-4 most relevant projects with 1-2 line descriptions
+4. **Activities**: Leadership roles, volunteer work, extracurriculars (3-4 activities, 1-2 bullets each)
+5. **Additional Section**: Skills, Languages, Certifications, Awards all consolidated into one section
 
-The CV MUST fill the full page — neither overflow nor leave significant whitespace. Target 90–100% page fill.
+The CV MUST fill the full page with MINIMAL WHITESPACE. Target 95–99% page fill. Every section should be densely packed without appearing cramped.
 
 - **Too long (> 1 page):** CUT content — never shrink fonts or margins. Priority for cuts (lowest value first): certifications > older/less-relevant jobs > project descriptions > education details.
-- **Too short (< ~85% of page):** EXPAND content to fill the page. Priority for additions (highest value first): add a 3rd bullet to top roles > add a 4th project > expand summary to 3-4 lines > restore trimmed certifications > expand education with thesis/honors if relevant. Never pad with filler — every added line must be truthful and relevant.
+- **Too short (< ~95% of page):** AGGRESSIVELY EXPAND to fill remaining space. Priority for additions (highest value first): add 3rd-4th bullets to top 2 roles (impact-focused, not filler) > add 4th-5th project > expand summary to 3-4 lines with additional context > add detailed education descriptions (thesis, honors, relevant coursework) > restore all trimmed certifications with years > add "Awards" or "Speaking" section if relevant. Never use filler — every added line must be truthful, relevant, and impact-focused.
 
 ## Full pipeline
 
-1. Identify the best-matching CV from the `resumes/` folder (e.g. `resumes/ai-engineer-cv.md`). List the files in `resumes/` if the role type is unclear and pick the most relevant one. Read that file as the source of truth.
-2. Ask the user for the JD if it is not already in context (text or URL)
+1. Identify the best-matching CV from the `resumes/` folder (e.g. `resumes/ai-engineer-cv.md`). List files in `resumes/` if unclear. Read as source of truth.
+2. Ask for the JD if not already in context (text or URL)
 3. Extract 15-20 JD keywords
-4. Detect the JD language -> CV language (EN default)
-5. Detect the company location -> paper format:
-   - US/Canada -> `letter`
-   - Rest of the world -> `a4`
-6. Detect the role archetype -> adapt the framing
-7. Rewrite the Professional Summary by injecting JD keywords + the exit narrative bridge ("Built and sold a business. Now applying systems thinking to [JD domain].")
-8. Select the top 2-3 projects that are most relevant to the offer
-9. Reorder experience bullets by JD relevance, keep only 2-3 bullets per role
-10. Build a competency list from the JD requirements (6-8 keyword phrases, inline text)
-11. Inject keywords naturally into existing achievements (NEVER invent)
-12. **Verify 1-page fit**: estimate total content — if it looks too long, trim further before generating HTML
-13. **Generate Markdown and wait for approval** — render the full tailored CV as clean Markdown, create the output directory (`mkdir -p output/{company-slug}/{position-slug}/`), and write it to `output/{company-slug}/{position-slug}/cv-{candidate}-{company-slug}-{YYYY-MM-DD}.md`. Show the full Markdown to the user and **STOP**. Ask:
-    > "Here's the tailored CV in Markdown. Does everything look correct? Reply 'yes' (or suggest changes) — I'll generate the PDF only after you approve."
-    - If the user requests changes: apply them **to the `.md` file on disk first**, then show the revised content from the file, and ask again. Never carry changes only in memory.
-    - **Do NOT proceed to PDF generation until the user explicitly approves.**
-14. **Re-read the `.md` file from disk** — after approval, always read `output/{company-slug}/{position-slug}/cv-{candidate}-{company-slug}-{YYYY-MM-DD}.md` fresh from disk. Use this as the source for HTML generation, not in-memory content.
-15. Generate the full HTML from the template + tailored content
-16. Write the HTML to `/tmp/cv-{candidate}-{company-slug}.html`
-17. Run: `node generate-pdf.mjs /tmp/cv-{candidate}-{company-slug}.html output/{company-slug}/{position-slug}/cv-{candidate}-{company-slug}-{YYYY-MM-DD}.pdf --format={letter|a4}`
-18. Report the PDF path, Markdown path, page count, and keyword coverage %
-19. **If page count ≠ 1 or page fill < 85%**: go back, expand or trim content (see One-page constraint rules), update the `.md` file, re-read it from disk, regenerate PDF. Repeat until the page is full and within 1 page.
+4. Detect JD language (EN default)
+5. Detect company location -> paper format (US/Canada: `letter`, else: `a4`)
+6. Rewrite Experience bullets by JD relevance (keep 3-4 bullets per role, inject keywords naturally)
+7. Select top 2-3 projects most relevant to offer
+8. Consolidate education, skills, languages, certifications, awards into structured sections
+9. Build contact info row: location, phone, email, LinkedIn, portfolio
+10. **Verify 1-page fit**: estimate total content. If too long: drop oldest jobs first, then reduce projects. If too short: expand bullets, add coursework, include GPA/honors.
+11. **Generate Markdown and wait for approval** — Write to `output/{company-slug}/{position-slug}/cv-{candidate}-{company-slug}-{YYYY-MM-DD}.md`. Show full Markdown and ask:
+    > "Here's the tailored CV (classic one-page format). Does everything look correct? Reply 'yes' to generate PDF."
+    - If changes requested: apply to `.md` file on disk, show revised content, ask again.
+    - **Do NOT proceed to PDF until user explicitly approves.**
+12. **Re-read the `.md` file from disk** — after approval, read fresh from disk as source for HTML generation.
+13. Generate HTML from template + tailored content, replacing all {{placeholders}}
+14. Write HTML to `/tmp/cv-{candidate}-{company-slug}.html`
+15. Run: `node generate-pdf.mjs /tmp/cv-{candidate}-{company-slug}.html output/{company-slug}/{position-slug}/cv-{candidate}-{company-slug}-{YYYY-MM-DD}.pdf --format={letter|a4}`
+16. Report PDF path, Markdown path, page count, keyword coverage %
+17. **If page count ≠ 1**: go back, adjust content, regenerate. Repeat until exactly 1 page.
 
 **Output directory convention:** `output/{company-slug}/{position-slug}/` where slugs are lowercase-hyphenated (e.g., `output/openai/senior-ml-engineer/`). Both the `.md` and `.pdf` files live in this folder.
 
@@ -56,38 +50,49 @@ The CV MUST fill the full page — neither overflow nor leave significant whites
 - No nested tables
 - JD keywords distributed across Summary (top 5), the first bullet of each role, and the Skills section
 
-## PDF design (consulting style — black & white, traditional, dense)
+## PDF design (classic resume, professional serif)
 
-- **Font**: Times New Roman / Georgia (system serif) — no custom web fonts
-- **Header**: name centered 22px bold, contact row centered below with pipe separators
-- **Section headers**: 11px, bold, uppercase, black bottom border (1px solid), no color
-- **Body**: 10.5px, line-height 1.3
-- **Company names**: bold, black (no color accents)
-- **Role titles**: italic
-- **Competencies**: inline comma/pipe-separated text (no colored tags)
+- **Font**: Georgia serif (or Times New Roman fallback) — classic, professional, ATS-friendly
+- **Header**: name centered 24px bold, contact row centered below (10px, no bullets, pipe separators)
+- **Section headers**: 11px bold uppercase, 2px black bottom border (full width), 3px padding below
+- **Body text**: 11px, line-height 1.5, generous readable spacing
+- **Company/institution names**: bold (11px), left-aligned
+- **Dates/locations**: 11px, right-aligned, flush to margin
+- **Bullets**: 3-4 per job, 1-2 lines each, impact-focused with metrics
 - **Margins**: 0.5in all sides
+- **Spacing**: 8px between major sections, 2px between related items
 - **Background**: pure white
-- **Colors**: black only. Links: underlined blue (#0000CC)
-- **No gradients, no colored accents, no tags/badges**
+- **Colors**: black text only. Links: no underline, black. No colored tags or accents.
+- **No gradients, no sidebars, single column, classic resume look**
 
-## Section order ("6-second recruiter scan" optimized)
+## Section order (classic resume format, maximum 1 page)
 
-1. Header (centered name, contact row with pipes)
-2. Professional Summary (2-3 lines, keyword-dense)
-3. Core Competencies (6-8 keyword phrases, inline text)
-4. Work Experience (reverse chronological, 2-3 roles, 2-3 bullets each)
-5. Projects (top 2-3 most relevant, one-line descriptions)
-6. Education & Certifications
-7. Skills (compact, one line per category)
+1. **Header** (centered name, contact row: location, phone, email, LinkedIn, portfolio)
+2. **Education** (reverse chronological, 2-3 schools, include GPA/honors/coursework)
+3. **Work Experience** (reverse chronological, 2-3 most relevant roles, 3-4 bullets each, impact-focused with metrics)
+4. **Projects** (optional, 3-4 most relevant, 1-2 line descriptions, include achievements)
+5. **Activities** (optional, leadership/volunteer roles, 1-2 bullets each)
+6. **Additional** (consolidated section: Technical Skills, Languages, Certifications & Training, Awards)
+
+**Page-fill strategy:**
+- Use Georgia serif font for classic professional look
+- Tight spacing (11px body, 1.5 line-height)
+- 0.5in margins on all sides
+- Full-width section header underlines
+- Right-aligned dates/periods for all entries
+- If content is too long: drop oldest/least-relevant jobs first, then reduce project count
+- If content is too short: expand bullet counts, add relevant coursework details, include honors/GPA
 
 ## Keyword injection strategy (ethical, truth-based)
 
-Examples of legitimate rewriting:
-- JD says "RAG pipelines" and CV says "LLM workflows with retrieval" -> rewrite to "RAG pipeline design and LLM orchestration workflows"
-- JD says "MLOps" and CV says "observability, evals, error handling" -> rewrite to "MLOps and observability: evals, error handling, cost monitoring"
-- JD says "stakeholder management" and CV says "collaborated with team" -> rewrite to "stakeholder management across engineering, operations, and business"
+For classic resume format, inject JD keywords into work experience bullets naturally:
 
-**NEVER add skills the candidate does not have. Only rephrase real experience using the exact vocabulary of the JD.**
+Examples:
+- JD says "RAG pipelines" and CV says "LLM workflows" → rewrite to "Designed RAG pipeline for document retrieval, improving query accuracy by 40%"
+- JD says "lead cross-functional teams" and CV says "worked with engineers" → rewrite to "Led cross-functional team of 5 engineers and product managers on API redesign"
+- JD says "AWS" and CV says "cloud infrastructure" → rewrite to "Built infrastructure on AWS, reducing deployment time from 2h to 15m"
+
+**NEVER fabricate skills.** Only reframe real experience using JD vocabulary. Focus on metrics and measurable impact in every bullet.
 
 ## HTML template
 
@@ -98,26 +103,19 @@ Use the template at `cv-template.html`. Replace the `{{...}}` placeholders with 
 | `{{LANG}}` | `en` or `es` |
 | `{{PAGE_WIDTH}}` | `8.5in` (letter) or `210mm` (A4) |
 | `{{NAME}}` | (from profile.yml) |
-| `{{EMAIL}}` | (from profile.yml) |
-| `{{LINKEDIN_URL}}` | [from profile.yml] |
-| `{{LINKEDIN_DISPLAY}}` | [from profile.yml] |
-| `{{PORTFOLIO_URL}}` | [from profile.yml] (or `/es` depending on language) |
-| `{{PORTFOLIO_DISPLAY}}` | [from profile.yml] (or `/es` depending on language) |
-| `{{LOCATION}}` | [from profile.yml] |
-| `{{SECTION_SUMMARY}}` | Professional Summary / Resumen Profesional |
-| `{{SUMMARY_TEXT}}` | Tailored summary with keywords |
-| `{{SECTION_COMPETENCIES}}` | Core Competencies / Competencias Core |
-| `{{COMPETENCIES}}` | `<span class="competency-tag">keyword</span>` × 6-8 |
-| `{{SECTION_EXPERIENCE}}` | Work Experience / Experiencia Laboral |
-| `{{EXPERIENCE}}` | HTML for each job with reordered bullets |
-| `{{SECTION_PROJECTS}}` | Projects / Proyectos |
-| `{{PROJECTS}}` | HTML for the top 3-4 projects |
-| `{{SECTION_EDUCATION}}` | Education / Formación |
-| `{{EDUCATION}}` | Education HTML |
-| `{{SECTION_CERTIFICATIONS}}` | Certifications / Certificaciones |
-| `{{CERTIFICATIONS}}` | Certifications HTML |
-| `{{SECTION_SKILLS}}` | Skills / Competencias |
-| `{{SKILLS}}` | Skills HTML |
+| `{{CONTACT_INFO}}` | Contact row: location, phone, email, LinkedIn, portfolio (pipe-separated) |
+| `{{SECTION_EDUCATION}}` | Education |
+| `{{EDUCATION}}` | Education HTML (degree, institution, location, date, GPA, coursework) |
+| `{{SECTION_EXPERIENCE}}` | Work Experience |
+| `{{EXPERIENCE}}` | HTML for each job (company, title, dates, location, 3-4 bullets) |
+| `{{SECTION_PROJECTS}}` | Projects (optional) |
+| `{{PROJECTS}}` | HTML for 3-4 most relevant projects |
+| `{{SECTION_ACTIVITIES}}` | Activities (optional, extracurriculars, volunteer work) |
+| `{{ACTIVITIES}}` | HTML for leadership/volunteer roles |
+| `{{SECTION_ADDITIONAL}}` | Additional |
+| `{{ADDITIONAL}}` | Skills, Languages, Certifications, Awards (all in one section) |
+| `{{#IF_PROJECTS}}...{{/IF_PROJECTS}}` | Conditional: only render Projects section if projects exist |
+| `{{#IF_ACTIVITIES}}...{{/IF_ACTIVITIES}}` | Conditional: only render Activities section if activities exist |
 
 ## Canva CV Generation (optional)
 
