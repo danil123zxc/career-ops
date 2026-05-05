@@ -1,0 +1,31 @@
+# Dependencies and VCS internals
+node_modules/
+.git/
+.dolt/
+.beads/
+
+# Generated graph artifacts
+graphify-out/cache/
+graphify-out/transcripts/
+graphify-out/.graphify_python
+.graphify_*.json
+.graphify_*.txt
+
+# Career-Ops user layer / private work product
+data/
+reports/
+output/
+jds/
+resumes/
+config/profile.yml
+portals.yml
+modes/_profile.md
+article-digest.md
+
+# Local agent settings and generated media
+.claude/settings.local.json
+.claude/memory/
+.DS_Store
+*.pdf
+*.mov
+*.mp4
