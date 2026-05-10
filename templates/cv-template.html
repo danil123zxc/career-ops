@@ -17,12 +17,12 @@
   }
 
   body {
-    font-family: 'Times New Roman', Times, Georgia, serif;
-    font-size: 10.5px;
-    line-height: 1.3;
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 11px;
+    line-height: 1.5;
     color: #000;
     background: #fff;
-    padding: 0;
+    padding: 0.5in;
     margin: 0;
   }
 
@@ -31,21 +31,24 @@
     max-width: {{PAGE_WIDTH}};
     margin: 0 auto;
     padding: 0;
+    font-family: "Georgia", "Times New Roman", serif;
   }
 
   /* === HEADER === */
   .header {
     text-align: center;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
+    border-bottom: none;
   }
 
   .header h1 {
-    font-family: 'Times New Roman', Times, Georgia, serif;
-    font-size: 22px;
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 24px;
     font-weight: 700;
     color: #000;
-    margin-bottom: 2px;
-    line-height: 1.2;
+    margin-bottom: 4px;
+    line-height: 1.1;
+    letter-spacing: 1px;
   }
 
   .header-gradient {
@@ -56,38 +59,41 @@
     font-size: 10px;
     line-height: 1.5;
     color: #000;
+    font-family: "Georgia", "Times New Roman", serif;
   }
 
   .contact-row a {
-    color: #0000CC;
-    text-decoration: underline;
+    color: #000;
+    text-decoration: none;
   }
 
   .contact-row .separator {
     color: #000;
+    margin: 0 4px;
   }
 
   /* === SECTIONS === */
   .section {
-    margin-bottom: 7px;
+    margin-bottom: 8px;
   }
 
   .section-title {
-    font-family: 'Times New Roman', Times, Georgia, serif;
+    font-family: "Georgia", "Times New Roman", serif;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     color: #000;
-    border-bottom: 1px solid #000;
-    padding-bottom: 1px;
-    margin-bottom: 4px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 3px;
+    margin-bottom: 6px;
     line-height: 1.2;
+    letter-spacing: 0.5px;
   }
 
   /* === PROFESSIONAL SUMMARY === */
   .summary-text {
-    font-size: 10.5px;
-    line-height: 1.4;
+    font-size: 11px;
+    line-height: 1.5;
     color: #000;
   }
 
@@ -99,11 +105,13 @@
   /* === CORE COMPETENCIES === */
   .competencies-grid {
     display: inline;
+    font-size: 11px;
+    line-height: 1.5;
   }
 
   .competency-tag {
-    font-family: 'Times New Roman', Times, Georgia, serif;
-    font-size: 10.5px;
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 11px;
     font-weight: 400;
     color: #000;
     background: none;
@@ -115,53 +123,56 @@
 
   /* === WORK EXPERIENCE === */
   .job {
-    margin-bottom: 7px;
+    margin-bottom: 8px;
   }
 
   .job-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 8px;
-    margin-bottom: 0;
+    gap: 12px;
+    margin-bottom: 1px;
   }
 
   .job-company {
-    font-family: 'Times New Roman', Times, Georgia, serif;
-    font-size: 10.5px;
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 11px;
     font-weight: 700;
     color: #000;
   }
 
   .job-period {
-    font-size: 10.5px;
+    font-size: 11px;
     color: #000;
     white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .job-role {
-    font-size: 10.5px;
-    font-style: italic;
+    font-size: 11px;
+    font-style: normal;
     font-weight: 400;
     color: #000;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
   }
 
   .job-location {
-    font-size: 10.5px;
+    font-size: 11px;
     color: #000;
+    margin-bottom: 2px;
   }
 
   .job ul {
-    padding-left: 16px;
-    margin-top: 1px;
+    padding-left: 20px;
+    margin-top: 2px;
+    margin-bottom: 0;
   }
 
   .job li {
-    font-size: 10.5px;
-    line-height: 1.3;
+    font-size: 11px;
+    line-height: 1.45;
     color: #000;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
   }
 
   .job li strong {
@@ -170,76 +181,81 @@
 
   /* === PROJECTS === */
   .project {
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
   }
 
   .project-title {
-    font-family: 'Times New Roman', Times, Georgia, serif;
-    font-size: 10.5px;
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 11px;
     font-weight: 700;
     color: #000;
   }
 
-  .project-badge {
-    font-size: 9px;
-    font-weight: 400;
-    font-style: italic;
+  .project-date {
+    font-size: 11px;
     color: #000;
-    background: none;
-    padding: 0;
-    border-radius: 0;
-    margin-left: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .project-desc {
-    font-size: 10.5px;
+    font-size: 11px;
     color: #000;
     margin-top: 1px;
-    line-height: 1.3;
+    line-height: 1.45;
   }
 
   .project-tech {
     font-size: 10px;
-    font-style: italic;
+    font-style: normal;
     color: #000;
     margin-top: 1px;
   }
 
   /* === EDUCATION === */
   .edu-item {
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
 
   .edu-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 8px;
+    gap: 12px;
   }
 
   .edu-title {
     font-weight: 700;
-    font-size: 10.5px;
+    font-size: 11px;
     color: #000;
   }
 
   .edu-org {
     color: #000;
-    font-style: italic;
-    font-weight: 400;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 11px;
   }
 
   .edu-year {
-    font-size: 10.5px;
+    font-size: 11px;
     color: #000;
     white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .edu-desc {
     font-size: 10px;
     color: #000;
     margin-top: 1px;
-    line-height: 1.3;
+    line-height: 1.4;
   }
 
   /* === CERTIFICATIONS === */
@@ -247,12 +263,12 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 8px;
-    margin-bottom: 3px;
+    gap: 12px;
+    margin-bottom: 4px;
   }
 
   .cert-title {
-    font-size: 10.5px;
+    font-size: 11px;
     font-weight: 400;
     color: #000;
   }
@@ -260,12 +276,14 @@
   .cert-org {
     color: #000;
     font-weight: 700;
+    font-size: 11px;
   }
 
   .cert-year {
-    font-size: 10.5px;
+    font-size: 11px;
     color: #000;
     white-space: nowrap;
+    flex-shrink: 0;
   }
 
   /* === SKILLS === */
@@ -274,16 +292,70 @@
   }
 
   .skill-item {
-    font-size: 10.5px;
+    font-size: 11px;
     color: #000;
     display: block;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
+    line-height: 1.5;
   }
 
   .skill-category {
     font-weight: 700;
     color: #000;
-    font-size: 10.5px;
+    font-size: 11px;
+    display: inline;
+  }
+
+  /* === ACTIVITIES === */
+  .activity {
+    margin-bottom: 6px;
+  }
+
+  .activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .activity-title {
+    font-weight: 700;
+    font-size: 11px;
+    color: #000;
+  }
+
+  .activity-location {
+    font-size: 11px;
+    color: #000;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .activity-role {
+    font-size: 11px;
+    font-weight: 400;
+    color: #000;
+    margin-bottom: 1px;
+  }
+
+  .activity-period {
+    font-size: 11px;
+    color: #000;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .activity ul {
+    padding-left: 20px;
+    margin-top: 1px;
+    margin-bottom: 0;
+  }
+
+  .activity li {
+    font-size: 11px;
+    line-height: 1.45;
+    color: #000;
+    margin-bottom: 1px;
   }
 
   /* === PRINT === */
@@ -291,6 +363,7 @@
     body {
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
+      padding: 0.5in;
     }
 
     .page {
@@ -303,7 +376,8 @@
   .job,
   .project,
   .edu-item,
-  .cert-item {
+  .cert-item,
+  .activity {
     break-inside: avoid;
     page-break-inside: avoid;
   }
@@ -315,30 +389,13 @@
   <!-- HEADER -->
   <div class="header avoid-break">
     <h1>{{NAME}}</h1>
-    <div class="header-gradient"></div>
-    <div class="contact-row">
-      <span>{{EMAIL}}</span>
-      <span class="separator">|</span>
-      <a href="{{LINKEDIN_URL}}">{{LINKEDIN_DISPLAY}}</a>
-      <span class="separator">|</span>
-      <a href="{{PORTFOLIO_URL}}">{{PORTFOLIO_DISPLAY}}</a>
-      <span class="separator">|</span>
-      <span>{{LOCATION}}</span>
-    </div>
+    <div class="contact-row">{{CONTACT_INFO}}</div>
   </div>
 
-  <!-- PROFESSIONAL SUMMARY -->
-  <div class="section avoid-break">
-    <div class="section-title">{{SECTION_SUMMARY}}</div>
-    <div class="summary-text">{{SUMMARY_TEXT}}</div>
-  </div>
-
-  <!-- CORE COMPETENCIES -->
+  <!-- EDUCATION -->
   <div class="section">
-    <div class="section-title">{{SECTION_COMPETENCIES}}</div>
-    <div class="competencies-grid">
-      {{COMPETENCIES}}
-    </div>
+    <div class="section-title">{{SECTION_EDUCATION}}</div>
+    {{EDUCATION}}
   </div>
 
   <!-- WORK EXPERIENCE -->
@@ -347,28 +404,26 @@
     {{EXPERIENCE}}
   </div>
 
-  <!-- PROJECTS -->
-  <div class="section avoid-break">
+  <!-- PROJECTS (OPTIONAL) -->
+  {{#IF_PROJECTS}}
+  <div class="section">
     <div class="section-title">{{SECTION_PROJECTS}}</div>
     {{PROJECTS}}
   </div>
+  {{/IF_PROJECTS}}
 
-  <!-- EDUCATION -->
-  <div class="section avoid-break">
-    <div class="section-title">{{SECTION_EDUCATION}}</div>
-    {{EDUCATION}}
+  <!-- ACTIVITIES (OPTIONAL) -->
+  {{#IF_ACTIVITIES}}
+  <div class="section">
+    <div class="section-title">{{SECTION_ACTIVITIES}}</div>
+    {{ACTIVITIES}}
   </div>
+  {{/IF_ACTIVITIES}}
 
-  <!-- CERTIFICATIONS -->
-  <div class="section avoid-break">
-    <div class="section-title">{{SECTION_CERTIFICATIONS}}</div>
-    {{CERTIFICATIONS}}
-  </div>
-
-  <!-- SKILLS -->
-  <div class="section avoid-break">
-    <div class="section-title">{{SECTION_SKILLS}}</div>
-    {{SKILLS}}
+  <!-- ADDITIONAL (SKILLS, LANGUAGES, CERTS, AWARDS) -->
+  <div class="section">
+    <div class="section-title">{{SECTION_ADDITIONAL}}</div>
+    {{ADDITIONAL}}
   </div>
 
 </div>

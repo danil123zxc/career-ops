@@ -1,0 +1,37 @@
+{
+  "eval_id": 1,
+  "eval_name": "직무경험-concise",
+  "prompt": "직무와 관련된 본인의 경험 및 역량을 구체적으로 서술해 주세요. (500자 이내)",
+  "assertions": [
+    {
+      "id": "char-limit",
+      "text": "Answer is 500 characters or fewer (including spaces)",
+      "type": "programmatic"
+    },
+    {
+      "id": "korean-language",
+      "text": "Answer is primarily in Korean (>30% Korean characters)",
+      "type": "programmatic"
+    },
+    {
+      "id": "jondaenmal",
+      "text": "Uses 존댓말 consistently (sentences end with 습니다/입니다)",
+      "type": "programmatic"
+    },
+    {
+      "id": "no-star-headers",
+      "text": "No explicit STAR headers as standalone labels",
+      "type": "programmatic"
+    },
+    {
+      "id": "has-metrics",
+      "text": "Contains at least 1 specific metric from CV",
+      "type": "programmatic"
+    },
+    {
+      "id": "mentions-specific-role",
+      "text": "References a specific project or role from the candidate's actual CV (TripleH, Ebit, DeepLearning.AI, or JobHunt AI)",
+      "type": "programmatic"
+    }
+  ]
+}

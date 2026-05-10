@@ -1,0 +1,37 @@
+{
+  "eval_id": 2,
+  "eval_name": "협업갈등",
+  "prompt": "팀 프로젝트에서 의견 차이나 갈등 상황을 해결한 경험을 서술해 주세요. (800자 이내)",
+  "assertions": [
+    {
+      "id": "char-limit",
+      "text": "Answer is 800 characters or fewer (including spaces)",
+      "type": "programmatic"
+    },
+    {
+      "id": "korean-language",
+      "text": "Answer is primarily in Korean (>30% Korean characters)",
+      "type": "programmatic"
+    },
+    {
+      "id": "jondaenmal",
+      "text": "Uses 존댓말 consistently",
+      "type": "programmatic"
+    },
+    {
+      "id": "no-star-headers",
+      "text": "No explicit STAR headers as standalone labels",
+      "type": "programmatic"
+    },
+    {
+      "id": "first-person",
+      "text": "Uses first person (저/제가) to show individual contribution clearly",
+      "type": "programmatic"
+    },
+    {
+      "id": "resolution-present",
+      "text": "Describes a concrete resolution or outcome of the collaboration/conflict",
+      "type": "programmatic"
+    }
+  ]
+}

@@ -26,6 +26,11 @@ modes/_profile.md
 # Generated
 .resolved-prompt-*
 node_modules/
+graphify-out/cache/
+graphify-out/transcripts/
+graphify-out/.graphify_python
+.graphify_*.json
+.graphify_*.txt
 
 # OS
 .DS_Store
@@ -44,3 +49,5 @@ package-lock.json
 *.db
 .beads-credential-key
 resumes/
+
+*.pdf

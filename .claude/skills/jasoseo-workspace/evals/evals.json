@@ -1,0 +1,26 @@
+{
+  "skill_name": "jasoseo",
+  "evals": [
+    {
+      "id": 0,
+      "name": "지원동기-prnd",
+      "prompt": "헤이딜러(PRND) AI Engineer 포지션 지원동기를 작성해 주세요. 1000자 이내.",
+      "expected_output": "A 1000-char Korean 자소서 answer with natural STAR structure, connecting Danil's AI agent platform experience to PRND's mission. Should mention specific metrics from CV and reference PRND's product/tech.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "name": "직무경험-concise",
+      "prompt": "직무와 관련된 본인의 경험 및 역량을 구체적으로 서술해 주세요. (500자 이내)",
+      "expected_output": "A tight 500-char Korean answer focusing on the most relevant technical experience with concrete metrics. Should feel complete despite the constraint.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "협업갈등",
+      "prompt": "팀 프로젝트에서 의견 차이나 갈등 상황을 해결한 경험을 서술해 주세요. (800자 이내)",
+      "expected_output": "An 800-char Korean answer about a team collaboration challenge, with clear individual contribution and resolution. Should feel authentic, not templated.",
+      "files": []
+    }
+  ]
+}
