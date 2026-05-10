@@ -1,0 +1,42 @@
+{
+  "eval_id": 0,
+  "eval_name": "지원동기-prnd",
+  "prompt": "헤이딜러(PRND) AI Engineer 포지션 지원동기를 작성해 주세요. 1000자 이내.",
+  "assertions": [
+    {
+      "id": "char-limit",
+      "text": "Answer is 1000 characters or fewer (including spaces)",
+      "type": "programmatic"
+    },
+    {
+      "id": "korean-language",
+      "text": "Answer is primarily in Korean (>30% Korean characters)",
+      "type": "programmatic"
+    },
+    {
+      "id": "jondaenmal",
+      "text": "Uses 존댓말 consistently (sentences end with 습니다/입니다/했습니다/됩니다)",
+      "type": "programmatic"
+    },
+    {
+      "id": "no-star-headers",
+      "text": "No explicit STAR headers (상황/과제/행동/결과 or Situation/Task/Action/Result as standalone labels)",
+      "type": "programmatic"
+    },
+    {
+      "id": "has-metrics",
+      "text": "Contains at least 2 specific metrics from CV (numbers like 20%, 10%, 6개, 15개, 10만건 etc.)",
+      "type": "programmatic"
+    },
+    {
+      "id": "company-connection",
+      "text": "Mentions PRND or 헤이딜러 at least once, connecting candidate experience to company mission",
+      "type": "programmatic"
+    },
+    {
+      "id": "no-cliches",
+      "text": "Avoids Korean 자소서 cliches (어릴 때부터, 열정적이고, 급변하는 시대, 4차 산업혁명)",
+      "type": "programmatic"
+    }
+  ]
+}
