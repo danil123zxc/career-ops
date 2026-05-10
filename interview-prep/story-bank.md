@@ -51,3 +51,30 @@ This file accumulates your best interview stories over time. Each evaluation (Bl
 **R (Result):** Reduced manual benchmarking time by about 65%.  
 **Reflection:** AI quality becomes operationally useful when it runs in the same workflow as software quality checks.  
 **Best for questions about:** evaluation, CI/CD, quality systems, automation.
+
+### Fast PoC - JobHunt AI Resume Agent
+**Source:** KDL FDE interview prep - resumes/ai-engineer-cv.md
+**S (Situation):** Job seekers spend repeated manual effort analyzing job descriptions and adapting resumes for each role.
+**T (Task):** Build a working AI product prototype under hackathon constraints that could analyze JDs and optimize resumes end-to-end.
+**A (Action):** Built a FastAPI backend with LangChain/LangGraph workflows for JD analysis, keyword extraction, and tailored resume generation; connected a Next.js/TypeScript frontend, Supabase auth/data layer, Gemini processing, and Vercel deployment.
+**R (Result):** Delivered a full-stack AI resume optimizer during a hackathon with about 100 participants.
+**Reflection:** Fast demos matter, but the FDE value is turning ambiguous pain into a working workflow that can later receive evaluation, API design, testing, and deployment hardening.
+**Best for questions about:** fast prototyping, PoC delivery, ambiguous problem solving, product thinking, vibe coding.
+
+### Engineering Quality - Code Review Checklist
+**Source:** KDL FDE interview prep - resumes/ai-engineer-cv.md
+**S (Situation):** Ebit needed consistent review quality across frequent AI/automation code changes.
+**T (Task):** Review PRs efficiently while keeping standards clear for error handling, logging, input validation, and testability.
+**A (Action):** Conducted about 8 pull request reviews per day and turned repeated review criteria into a standardized code review checklist adopted by 4 engineers.
+**R (Result):** Created a shared QA baseline and reduced ambiguity in technical review expectations.
+**Reflection:** Technical disagreement is easier to resolve when the discussion moves from preference to failure modes, operational risk, user impact, and test coverage.
+**Best for questions about:** conflict, code review, engineering standards, quality under speed, collaboration.
+
+### Product QA - DeepLearning.AI Platform Testing
+**Source:** KDL FDE interview prep - resumes/ai-engineer-cv.md
+**S (Situation):** DeepLearning.AI needed alpha testing across AI/ML course content and production education-platform features.
+**T (Task):** Validate learner-facing workflows and course materials for correctness, stability, and reproducibility.
+**A (Action):** Tested LangChain, CrewAI, Neo4j, and AI-agent course experiences; verified auto-grading, progress tracking, quizzes, authentication, and reproducible notebook/platform behavior; documented 30+ bugs and contributed targeted fixes.
+**R (Result):** Improved platform and content stability before broader release.
+**Reflection:** AI product quality is not only model output; it includes user workflow, evaluation, reliability, and the ability to reproduce failures.
+**Best for questions about:** growth, QA mindset, attention to detail, product quality, AI learning trajectory.
