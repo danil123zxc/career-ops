@@ -1,0 +1,4 @@
+interface:
+  display_name: "Korean Interview Coach"
+  short_description: "Practice Korean job interview answers"
+  default_prompt: "Use $korean-interview-coach to prepare a Korean interview self-introduction for this role."
